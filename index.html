@@ -4,7 +4,6 @@
 
 		<link rel="icon" href="favicon.png">
 
-		<script src="./goatify_files/jquery.min.js.download"></script>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -13,7 +12,7 @@
 
 	</head>
 
-	<body>
+	<body style="padding-bottom: 100px;">
         <!--
 		<nav class="navbar navbar-expand-lg" style="background: #acff59">
 			<a class="navbar-brand" href="/" style="font-size:6em; color:22b14c">G<img src="favicon.png" style="width:75px;margin-top:-15px;">ATIFY</a>
@@ -24,7 +23,8 @@
             <img src = "goatT.png">
         </div>-->
 
-		<div class="container" id="screen1" style="padding-top: 100px;">
+	<a href="/" style="text-decoration : none"><h1 style="background:black;color: white; font-size:42pt; width:100%; text-align: center;margin-bottom: 50px; padding-bottom: 20px;padding-top:20px;margin-top:0px;font-variant: small-caps;">Goatify</h1></a>
+		<div class="container" id="screen1" style="">
 			<div class="row" style="border-radius: 30; margin-bottom: 100px;">
 				<div class="form-group col-sm-3 colmn"> <!-- style="width:300px; float: left; margin-left: 80px; margin-top: 60px; margin-bottom: 70px;">-->
 					<label for="song">Upload Song: </label>
@@ -39,13 +39,13 @@
                 </div>
                 <div class="clearfix"></div>
             </div>
-            <div class="form-check" style="width:200px; margin: 5px auto; margin-top:-20px;margin-bottom:20px;">
+            <div class="form-check" style="width:300px; margin: 5px auto; margin-top:-20px;margin-bottom:20px;text-align:center;">
                 <input class="form-check-input" type="checkbox" value="" id="octave">
                 <label class="form-check-label" for="octave">
                     Raise goat one octave
                 </label>
             </div>
-            <button onclick="doGoat()" class="btn btn-success btn-lg" style="width: 200px; margin: auto; display:block">Goatify!</button>
+            <button onclick="doGoat()" class="btn btn-success btn-lg" style="width: 200px; margin: auto; display:block">Goatify My Song!</button>
         </div>
         
         
@@ -58,7 +58,7 @@
 			<audio id="player" controls="" style="display:block; width:500px; margin:auto; margin-top: 100px; margin-bottom: 50px;">
 				<source id="audiosource" type="audio/mpeg">
 			</audio>
-			<a href="file:///C:/" style="display:block; width:300px; margin:auto;" class="btn btn-success">Goatify Another Song</a>
+			<a style="display:block; width:300px; margin:auto;" class="btn btn-success" href="/">Goatify Another Song</a>
 		<div>
 
 		<script>
