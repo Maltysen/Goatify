@@ -1,0 +1,87 @@
+/*
+h1{
+    font-family: "Unkempt", "Arial"; 
+    color: black;
+    font-weight: bold; 
+    margin: auto; 
+    top: 2%; 
+    margin: auto; 
+    font-size: 100px;
+    letter-spacing: 10px; 
+}
+*/
+
+.colmn {
+    float: none;
+    display: table-cell;
+    vertical-align: bottom;
+    padding-top: 100px;
+}
+
+#col-xs-3{
+    padding-left: 1em; 
+}
+
+#container{
+    font-family: "Alfa Slab One", "Arial"; 
+    position: fixed;
+    top: 35%;
+    left: 5%;
+    font-size: 40px;
+    margin-bottom: 0px; 
+    color: black;
+}
+
+/*
+#song button, #instrumental button{
+    margin-top: 0px; 
+    font-family: "Arial"; 
+    font-size: 20px; 
+}
+
+#instrumental{
+    top: 35%;
+    left: 70%; 
+    font-family: "Alfa Slab One", "Arial"; 
+    position: fixed; 
+    font-size: 40px; 
+    margin-bottom: 0px; 
+    color: black; 
+}
+
+#inst2{
+    margin-bottom: 0px; 
+    padding-bottom: 0px; 
+    line-height: 0px; 
+}
+
+*/
+
+img{
+    height: 300px; 
+    width: 300px; 
+    z-index: -1; 
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+
+body{
+    background-color: white;
+    opacity: 0.8;
+
+}
+
+button:hover{
+    color:#0B03AA;
+    /*#0B03AA;*/
+}
+
+/*
+#go{
+    color: #F05E38; 
+}
+*/

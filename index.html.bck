@@ -1,0 +1,98 @@
+<html>
+	<head>
+		<title>Goatify</title>
+
+		<link rel="icon" href="favicon.png">
+
+		<link rel = "stylesheet" href="https://fonts.googleapis.com/css?family=Alfa Slab One">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+	</head>
+
+	<body>
+		<div class = "container-fluid" id="screen1"> 
+		    <div class = "row">
+
+			<div class = "col-xs-3">
+			    
+			    <div id = "song">
+				<p>UPLOAD A SONG</p>
+				<button>Choose File</button>
+			    </div>
+			</div>
+
+			<div id = "instrumental">
+			    <p>UPLOAD AN <span id = "inst2">INSTRUMENTAL</span></p><button>Choose File</button>
+			</div>
+
+			<a href = "link"><span id = "go">GO</span>ATIFY IT</a>
+
+			<img src = "goatT.png">
+		    </div>
+		</div>
+
+		<!-- <div class="container" id="screen1">
+			<div style="border-radius: 30;">
+				<div class="form-group" style="width:300px; margin:auto; margin-top: 100px; margin-bottom: 70px;">
+					<label for="song">Upload Song: </label>
+					<input type="file" name="song" id="song" required>
+				</div>
+				<div class="form-group" style="width:300px; margin:auto; margin-bottom: 70px;">
+					<label for="kareoke">Intrumental Accompaniment (Optional): </label>
+					<input type="file" name="kareoke" id="kareoke">
+				</div>
+				<div class="form-check" style="width:300px; margin:auto; margin-bottom: 70px;">
+					<input class="form-check-input" type="checkbox" value="" id="octave">
+					<label class="form-check-label" for="octave">
+						Raise goat one octave
+					</label>
+				</div>
+
+				<button onclick="doGoat()" class="btn btn-success btn-lg" style="width: 200px; margin: auto;display:block">Goatify!</button>
+			</div>
+		</div> -->
+
+		<div class="container" id="loading">
+			<h1 style="text-align:center; width:100%;margin-top: 30%">Loading...</h1>
+		</div>
+
+		<div class="container" id="screen2">
+			<audio id="player" controls style="display:block; width:500px; margin:auto; margin-top: 100px; margin-bottom: 50px;">
+				<source id="audiosource" type="audio/mpeg"></source>
+			</audio>
+			<a href="/" style="display:block; width:300px; margin:auto;" class="btn btn-success">Goatify Another Song</a>
+		<div>
+
+		<script>
+			$("#loading").hide()
+			$("#screen2").hide()
+
+			function doGoat() {
+				$("#screen1").hide()
+				$("#loading").show()
+
+				window.AudioContext = window.AudioContext || window.webkitAudioContext;
+				context = new AudioContext();
+
+				indata = new FormData();
+				indata.append("song", $("#song").prop("files")[0]);
+				indata.append("kareoke", $("#kareoke").prop("files")[0]);
+				indata.append("double", $("#octave").is(':checked')?"1":"0")
+				var oReq = new XMLHttpRequest();
+				oReq.open("POST", "goatify", true);
+				oReq.responseType = "blob";
+				oReq.onload = function (data) {
+					//$("#audiosource")[0].src = URL.createObjectURL(new Blob(new Uint8Array(oReq.response), {type: "audio/mpeg"}));
+					$("#audiosource")[0].src = URL.createObjectURL(oReq.response);
+					$("#player")[0].load();
+					$("#player")[0].play();
+					$("#loading").hide()
+					$("#screen2").show()
+				}
+				oReq.send(indata);
+			}
+		</script>
+	</body>
+</html>
